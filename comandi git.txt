@@ -1,0 +1,92 @@
+-------------------------------------------------------  Comandi linux utili  ----------------------------------------------------------------
+mkdir	nomecartella							--> crea cartella
+cd nomedir									--> change directory
+tab										--> autocompletamento se non è univoco completa ciò che può
+ls 										--> elenca tutti i file nell dir corrente
+											-a  anche quelli nascosti
+clear										--> cancella la bash
+touch nomefile.estensione						--> crea nuovo file
+echo testo > fileincuiscrivere					--> scrive testo in un file, se non esiste lo crea
+vi filedamodificaredabash						--> poi premi "i" per scrivere testo, esc invio :wq invio (writequit)
+
+
+------------------------------------------------------------  COMANDI GIT  ------------------------------------------------------------------
+
+git init 									--> inizializza una repository git in locale
+git add nomefile	nomefile2						--> aggiunge alle cose da committare uno o più file
+											* aggiunge tutti i file
+											*.txt aggiunge tutti i txt
+git commit -m "titolo commit" -m "descrizione commit" 	--> se apri l'editor per sbaglio digita :wq per uscire
+											--amend modifica l'ultimo commit sostituendolo
+											-a -m oppure -am eqivale a: git add nomefile + git commit -m "titolo commit"
+git status 									--> fa vedere lo stato di git al momento (commit fatte, file non committati, file non tracciati)
+git restore --staged nomefile						--> contrario di git add
+git log 									--> mostra la lista delle commit
+											--oneline stampa i commit in formato compresso
+											--reverse ordina al contrario la stampa dei commit
+											--all --decorate --online --graph per vedere lo stato dei vari branch
+											(HEAD punta al branch in cui sono al momento)
+git reset --mixed idcommitACuiAndare				--> cancella la commit (anche se fatta da altri ! usare solo in locale)
+											--mixed (default) elimina la commit e anche dalla staging area (li elimina dal tracciamento)
+											--soft elimina la commit e riporta i file nella staging area (non li elimina)
+											--hard elimina la commit e gli ultimi file aggiunti (li elimina)
+											HEAD^1 vai indietro di una commit ( per non scrivere gli id ogni volta )
+											
+git revert									--> crea un altra commit ripristinando lo stato precedente da usare al posto di git reset
+file .gitignore nella root dir del progetto che usa git	--> una volta committato i file scritti all'interno non vengono presi in considerazione da git
+											nomefile
+											*.log (tutti i file .log)
+											!debug.log (eccezione alla regola sopra)
+											nomecartella (anche cartelle)
+											# commento
+alias graph = "coamando lungo che non ho voglia di riscrivere sempre"
+
+
+------------------------------------------------------------------- BRANCH -----------------------------------------------------------------
+
+git branch 									--> visualizza tutti i branch e ci fa vedere quello in cui siamo (head)
+											nomenuovobranch crea un nuovo branch
+											-d elimina un branch gia unito
+											-D elimina un branch anche se non ancora unito
+git checkout nomebranch							--> spostarmi di branch
+											-b per saltare il comando git branch nomenuovobranch
+git checkout --filename							--> togli il file dalla staging area
+git diff master..branch2						--> confronta i branch e dimmi quali sono le differenze
+
+
+git merge nomebranch							--> unisce 2 branch. Prima di usarlo spostati sul branch master
+											--abort annulla il merge
+ !!!!  merge fast farward ad una via = sposta avanti il branch master fino a che non diventa uguale ad un brach
+(solo se master non è andato avanti da quando il branch è stato crato)
+ !!!! merge a più vie (non fast forward) il branch master è andato avanti da quando si è creato il branch
+
+
+
+git branch --merged							--> vedere quali sono i branch uniti
+
+-------------------------------------------------------------------  GIT ONLINE -----------------------------------------------------------
+
+git remote add origin https:// url github bitbucket ecc 	--> inserisce in git l'indirizzo di un server per il push e il pull (origin è il nome associato all' url) 
+git remote									--> visualizza lista server inseriti
+											-v lista con anche l'URL
+											remove nomeserver elimina il srever da git il locale
+
+git push									--> uploada i commit sul server
+											-u origin master imposta il server origin di default per i push e pull
+git fetch									--> sincronizzare le modifiche che sono state fatte (senza fare merge) sul server remoto 
+											(altri hanno portato avanti, usa graph per visualizzarle)
+
+git pull									--> sincronizza le modifiche sul server e fa il merge
+
+git clone URL nome_cartella_in_cui_clonare			--> copia una repository
+											nomealternativo 
+
+fork serve a sviluppare repository non nostre (git clone ma all'interno del server (github))
+pull request serve a chiedere applicare le modifiche fatte alla repository forkata 
+											
+
+
+
+
+
+		
