@@ -73,10 +73,11 @@ git remote									--> visualizza lista server inseriti
 
 git push									--> uploada i commit sul server
 											-u origin master imposta il server origin di default per i push e pull
-git fetch									--> sincronizzare le modifiche che sono state fatte (senza fare merge) sul server remoto 
-											(altri hanno portato avanti, usa graph per visualizzarle)
+git fetch									--> sincronizzare le modifiche che sono state fatte (senza fare merge)
+											dal server remoto in locale
+											(se altri hanno portato avanti il progetto, usa graph per visualizzare i cambiamenti)
 
-git pull									--> sincronizza le modifiche sul server e fa il merge
+git pull									--> sincronizza le modifiche fatte in locale sul server e fa il merge
 
 git clone URL nome_cartella_in_cui_clonare			--> copia una repository
 											nomealternativo 
