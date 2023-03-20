@@ -84,6 +84,12 @@ git clone URL nome_cartella_in_cui_clonare			--> copia una repository
 
 fork serve a sviluppare repository non nostre (git clone ma all'interno del server (github))
 pull request serve a chiedere applicare le modifiche fatte alla repository forkata 
+----------------------------------------------------------------------------------------------------------
+
+git flow init 								--> inizializza il git workflow creando i vari branch
+git flow feature start nome_feature 				--> crea nuova feature ( nuovo branch nominato feature/nome_feature)
+											e ti sposta su quel branch.
+git flow feature finish 						--> si sposta sul ramo develop e prova a fare il merge
 											
 
 
